@@ -1,0 +1,23 @@
+name: PluginInstaller
+id:   PluginInstaller
+version: 0.1
+author_name: Junnama Noda
+author_link: https://github.com/junnama
+description: <__trans phrase="Install plugin by specifying the URL of the ZIP archive.">
+l10n_class: PluginInstaller::L10N
+callbacks:
+    MT::App::CMS::template_source.cfg_plugin: PluginInstaller::CMS::_cb_template_source_cfg_plugin
+applications:
+    cms:
+        methods:
+            install_plugin_from_archive_url: PluginInstaller::CMS::_app_cms_install_plugin_from_archive_url
+config_settings:
+    PluginAllowOverwrite:
+        default: 1
+    PluginPerms:
+        default: 0644
+    PluginCGIPerms:
+        default: 0755
+    PluginToolPerms:
+        default: 0755
+
